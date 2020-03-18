@@ -15,12 +15,10 @@ public class Stack {
         ListItem help = new ListItem();
         help.setData(aData);
 
-        if (top == null) {
-            top = help;
-        } else {
+        if (top != null) {
             help.setNext(top);
-            top = help;
         }
+        top = help;
         size++;
     }
 

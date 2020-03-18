@@ -10,9 +10,8 @@ public class Stack {
         size = 0;
     }
 
-    // muodosta uusi lista-alkio ja vie se pinon huipulle
+    // create new element and add it to the top of the stack
     public void push(String aData) {
-        // aData = a = argument
         ListItem help = new ListItem();
         help.setData(aData);
 
@@ -25,8 +24,8 @@ public class Stack {
         size++;
     }
 
-    // poista ja palauta alkio pinon huipulta
-    // jos pino tyhjä, palauta null
+    // delete & return element from the top of the stack
+    // return null if nothing in the stack
     public ListItem pop() {
 
         if (top == null) {
@@ -40,7 +39,7 @@ public class Stack {
 
     }
 
-    // tulosta pinon sisältö muuttamatta pinoa
+    // print stacks elements without changing the stack
     public void printItems() {
         ListItem current = top;
         while (current != null) {

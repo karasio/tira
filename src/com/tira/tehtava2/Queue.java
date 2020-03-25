@@ -40,7 +40,6 @@ public class Queue {
 
     public void printItems() {
         ListItem current = head;
-        System.out.println("head=" + head);
         while (current != null) {
             System.out.println(current.getData());
             current = current.getNext();
@@ -51,10 +50,7 @@ public class Queue {
         return size;
     }
 
-/*    ALTERNATIVE APPROACH WITH ONLY ONE INSTANCE OF LISTITEM,
-      WORKS AS WELL.
-      IS THIS SOME HOW BETTER OR WORSE?
-
+/*  //  ALTERNATIVE APPROACH WITH ONLY ONE INSTANCE OF LISTITEM
     private ListItem li;
     private int size;
 

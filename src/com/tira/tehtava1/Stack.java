@@ -14,10 +14,7 @@ public class Stack {
     public void push(String aData) {
         ListItem help = new ListItem();
         help.setData(aData);
-
-        if (top != null) {
-            help.setNext(top);
-        }
+        help.setNext(top);
         top = help;
         size++;
     }

@@ -23,11 +23,11 @@ public class Menu {
 //printMenu alkaa------------------------------------------------------------------
     private static void printMenu() {
         char select;
-        Stack s = new Stack(); // pino-olio
+        Queue s = new Queue(); // pino-olio
         String data; // Pinon data-kenttä
+        System.out.println("JONO");
         do {
 
-            System.out.println("JONO");
             System.out.println("\n\t\t\t1. Alkion lisääminen.");
             System.out.println("\t\t\t2. Alkion poistaminen.");
             System.out.println("\t\t\t3. Pinon sisältö.");

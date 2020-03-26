@@ -3,6 +3,7 @@ package com.tira.tehtava5;
 /**
  *
  * @author kamaj
+ * modified by karasio
  */
 public class Stack {
 

@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package com.tira.tehtava7;
+package com.tira.tehtava8ja9;
 
 /**
  *
@@ -15,10 +15,10 @@ public class Node {
     private BinaryTree right;
 
     public Node(String value) {
-        data = new String(value);
+        data = value;
         left = right = null;
     }
-    public  Node (String value, BinaryTree left, BinaryTree right) {
+    public Node (String value, BinaryTree left, BinaryTree right) {
         data = new String(value);
         this.left = left;
         this.right = right;
@@ -38,6 +38,7 @@ public class Node {
     public void setRight(BinaryTree tree) {
         right = tree;
     }
+
 
 
 }

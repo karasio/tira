@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package com.tira.tehtava7;
+package com.tira.tehtava8ja9;
 
 /**
  *

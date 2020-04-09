@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package com.tira.tehtava8ja9;
+package com.tira.tehtava8ja9ja10;
 
 /**
  *
@@ -36,6 +36,7 @@ public class Menu {
         tree.insert("al");
         tree.insert("Tuck");
 
+
         String data;
         do {
             System.out.print("\n\t\t1. Lisää avain.");
@@ -61,6 +62,7 @@ public class Menu {
 
                     break;
                 case '3':
+                    System.out.println("Heightia muutettu " + tree.debug);
                     tree.inOrder();
                     System.out.println();
                     break;

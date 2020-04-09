@@ -1,11 +1,16 @@
-package com.tira.tehtava8ja9;
+package com.tira.tehtava8ja9ja10;
 
 public class BinaryTree {
 
     private Node root;
+     int debug;
+    public BinaryTree(String rootValue, int height) {
+        root = new Node(rootValue, height);
+    }
     public BinaryTree(String rootValue) {
         root = new Node(rootValue);
     }
+
     public BinaryTree() {
         root = null;
     }
@@ -16,23 +21,45 @@ public class BinaryTree {
     
     public void insert(String aData){
         aData = aData.toLowerCase();
+
+        // puu on tyhjä
         if (root == null) {
-            root = new Node(aData);
-        } else if(aData.compareTo(root.getData()) <= 0) {
+            root = new Node(aData, 0);
+            return;
+        }
+        // alkio on aakkosissa ennen tarkasteltavaa alkiota
+        if(aData.compareTo(root.getData()) <= 0) {
+            // alkio asetetaan vasemmalle, jos siellä on tyhjää
             if (root.left() == null) {
-                root.setLeft(new BinaryTree(aData));
-            } else {
+                root.setLeft(new BinaryTree(aData, 0));
+            }
+            // jos vasemmalla ei ole tilaa, siirrytään yhtä polvea alaspäin vasemmalle
+            else {
                 root.left().insert(aData);
             }
+        // alkio on aakkosissa jälkeen tarkasteltavan alkion
         } else {
+            // alkio asetetaan oikealle, jos siellä on tilaa
             if (root.right() == null) {
-                root.setRight(new BinaryTree(aData));
-            } else {
+                root.setRight(new BinaryTree(aData, 0));
+            }
+            // jos oikealla ei ole tilaa, siirrytään yhtä polvea alaspäin oikealle
+            else {
                 root.right().insert(aData);
             }
         }
+
+
+        int heightL = root.left() != null ? root.left().root.getNodeHeight() : 0;
+        int heightR = root.right() != null ? root.right().root.getNodeHeight() : 0;
+
+        root.setNodeHeight(max(heightL, heightR)+1);
     }
-    
+
+    private int max(int a, int b) {
+        return (a > b) ? a : b;
+    }
+
     public BinaryTree find(String aData){
         aData = aData.toLowerCase();
         if (aData.equals(root.getData())) {
@@ -60,7 +87,9 @@ public class BinaryTree {
         }
     }
 
-    public BinaryTree delete(BinaryTree tree, String data) {
+
+    // ei päivitä korkeuksia
+    private BinaryTree delete(BinaryTree tree, String data) {
 
         if (tree == null) {
             return null;
@@ -115,7 +144,7 @@ public class BinaryTree {
 
     }
 
-    public Node lastChild(Node node) {
+    private Node lastChild(Node node) {
         if (node.left() != null) {
             return lastChild(node.left().root);
         }
@@ -126,7 +155,7 @@ public class BinaryTree {
         if (root != null) {
             if (root.left() != null)
                 root.left().inOrder();
-            System.out.print(root.getData() + " ");
+            System.out.print(root.getData() + " " + root.getNodeHeight() + " ");
             if (root.right() != null)
                 root.right().inOrder();
         }
@@ -139,4 +168,6 @@ public class BinaryTree {
     public void setRight(BinaryTree tree) {
         root.setRight(tree);
     }
+
+
 }

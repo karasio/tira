@@ -71,16 +71,21 @@ public class BinaryTree {
 
         if (data.equals(tree.root.getData())) {
             if (tree.root.left() == null && tree.root.right() == null) {            // no sub trees -- remove leaf
+                System.out.println("Poisto - ei lapsia");
                 tree.root = null;
             } else if (tree.root.right() == null){                                  // 1 child: left -- attach child to parent's left
+                System.out.println("Poisto - 1 lapsi, vasen");
                 Node child = tree.root.left().root;
                 tree.root = child;
             } else if (tree.root.left() == null) {                                  // 1 child: right -- attach child to parent' right
+                System.out.println("Poisto - 1 lapsi, oikea");
                 Node child = tree.root.right().root;
                 tree.root = child;
             } else {                                                                // 2 children -- find out last child on right side
+                System.out.println("Poisto - 2 lasta");
                 Node lastChild = lastChild(tree.root.right().root);                 // replace node to be deleted with last child and attach
                 BinaryTree tree1 = new BinaryTree();                                // it's children to last child
+                System.out.println("Seuraavaksi poistetaan poistettavan alkion tilalle laitettava solmu");
                 delete(tree, lastChild.getData());
                 tree1.root = new Node(lastChild.getData());
                 tree1.root.setLeft(tree.root.left());
@@ -121,7 +126,7 @@ public class BinaryTree {
         if (root != null) {
             if (root.left() != null)
                 root.left().inOrder();
-            System.out.println(root.getData());
+            System.out.print(root.getData() + " ");
             if (root.right() != null)
                 root.right().inOrder();
         }

@@ -38,13 +38,11 @@ public class Menu {
 
         String data;
         do {
-
-            System.out.println("\n\t\t\t1. Lisää avain.");
-            System.out.println("\t\t\t2. Etsi avaimella.");
-            System.out.println("\t\t\t3. Käy puu läpi esijärjestyksessä.");
-            System.out.println("\t\t\t4. Poista avaimella.");
+            System.out.print("\n\t\t1. Lisää avain.");
+            System.out.print("\t\t\t2. Etsi avaimella.");
+            System.out.print("\t\t\t3. Käy puu läpi esijärjestyksessä.");
+            System.out.print("\t\t\t4. Poista avaimella.");
             System.out.println("\t\t\t5. lopetus ");
-            System.out.print("\n\n"); // tehdään tyhjiä rivejä
             select = Lue.merkki();
             switch (select) {
                 case '1':
@@ -64,6 +62,7 @@ public class Menu {
                     break;
                 case '3':
                     tree.inOrder();
+                    System.out.println();
                     break;
                 case '4':
                     data = Lue.rivi();

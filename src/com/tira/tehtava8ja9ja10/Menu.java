@@ -12,9 +12,6 @@ package com.tira.tehtava8ja9ja10;
 public class Menu {
     //main alkaa-----------------------------------------------------------------------------
     public static void main(String[] args) {
-
-
-
         printMenu();
 
     }
@@ -24,7 +21,9 @@ public class Menu {
         char select;
         BinaryTree tree = new BinaryTree();
 //        String[] sList = {"david", "bo", "coco", "angela", "emil", "fabio", "gabby","elin", "eelis", "an", "al", "tuck"};
-        String[] sList = {"k", "n", "e", "f", "g", "r", "s", "a", "m", "t",  "o", "l", "u", "v"};
+        String[] sList = {"david", "bo", "coco", "angela", "emil", "fabio", "gabby"};
+
+//        String[] sList = {"k", "n", "e", "f", "g", "r", "s", "a", "m", "t",  "o", "l", "u", "v"};
         for (String s : sList) {
             tree.insert(s);
         }
@@ -54,7 +53,6 @@ public class Menu {
 
                     break;
                 case '3':
-                    System.out.println("Heightia muutettu " + tree.debug);
                     tree.inOrder();
                     System.out.println();
                     break;

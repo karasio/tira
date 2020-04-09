@@ -3,7 +3,6 @@ package com.tira.tehtava8ja9ja10;
 public class BinaryTree {
 
     private Node root;
-     int debug;
     public BinaryTree(String rootValue, int height) {
         root = new Node(rootValue, height);
     }
@@ -155,7 +154,7 @@ public class BinaryTree {
         if (root != null) {
             if (root.left() != null)
                 root.left().inOrder();
-            System.out.print(root.getData() + " " + root.getNodeHeight() + " ");
+            System.out.print(root.getData() + ":" + root.getNodeHeight() + " --- ");
             if (root.right() != null)
                 root.right().inOrder();
         }

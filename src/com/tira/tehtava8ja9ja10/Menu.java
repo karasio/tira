@@ -23,19 +23,11 @@ public class Menu {
     private static void printMenu() {
         char select;
         BinaryTree tree = new BinaryTree();
-        tree.insert("david");
-        tree.insert("bo");
-        tree.insert("coco");
-        tree.insert("angela");
-        tree.insert("emil");
-        tree.insert("fabio");
-        tree.insert("gabby");
-        tree.insert("elin");
-        tree.insert("eelis");
-        tree.insert("an");
-        tree.insert("al");
-        tree.insert("Tuck");
-
+//        String[] sList = {"david", "bo", "coco", "angela", "emil", "fabio", "gabby","elin", "eelis", "an", "al", "tuck"};
+        String[] sList = {"k", "n", "e", "f", "g", "r", "s", "a", "m", "t",  "o", "l", "u", "v"};
+        for (String s : sList) {
+            tree.insert(s);
+        }
 
         String data;
         do {

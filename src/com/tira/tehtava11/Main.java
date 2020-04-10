@@ -1,11 +1,58 @@
 package com.tira.tehtava11;
 
 public class Main {
+    static BinarySearch binarySearch = new BinarySearch();
+
     public static void main(String[] args) {
+        //printMenu();
+        demoPrinting();
 
 
+    }
+
+    public static void demoPrinting() {
+        System.out.println("Esitäytetty aineisto:");
+        binarySearch.print();
+        System.out.println("---------------------------");
+
+        System.out.println("Etsitään pienin: 1");
+        binarySearch.searchHelp(1);
+        System.out.println("---------------------------");
+
+
+        System.out.println("Etsitään suurin: 78");
+        binarySearch.searchHelp(78);
+        System.out.println("---------------------------");
+
+
+        System.out.println("Etsitään jotain siltä väliltä: 26");
+        binarySearch.searchHelp(26);
+        System.out.println("---------------------------");
+
+
+        System.out.println("Lisätään 22");
+        binarySearch.insertHelp(22);
+        System.out.println("Aineisto nyt:");
+        binarySearch.print();
+        System.out.println("---------------------------");
+
+
+        System.out.println("Etsitään pienin: 1");
+        binarySearch.searchHelp(1);
+        System.out.println("---------------------------");
+
+        System.out.println("Etsitään suurin: 78");
+        binarySearch.searchHelp(78);
+        System.out.println("---------------------------");
+
+        System.out.println("Etsitään jotain siltä väliltä: 67");
+        binarySearch.searchHelp(67);
+
+
+    }
+
+    public static void printMenu() {
         char select;
-        BinarySearch binarySearch = new BinarySearch();
         int data;
         do {
             System.out.print("\t\t\t1. Lisää avaimella");

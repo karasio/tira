@@ -3,14 +3,14 @@ package com.tira.tehtava12;
 import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 
 public class BinaryHeap {
-    private int[] array;
+    private Integer[] array;
     private int size;
     private int maxSize;
     private static final int FIRST = 1;
 
     public BinaryHeap(int maxSize) {
         this.maxSize = maxSize;
-        this.array = new int[maxSize+1];
+        this.array = new Integer[maxSize+1];
         this.size = 0;
         array[0] = Integer.MIN_VALUE;
     }
@@ -30,7 +30,7 @@ public class BinaryHeap {
     }
 
     public boolean isLeaf(int i) {
-        if (array[findLeftChild(i)] == 0 && array[findRightChild(i)] == 0) {
+        if (array[findLeftChild(i)] == null && array[findRightChild(i)] == null) {
 //            System.out.println("no children");
             return true;
         }
@@ -52,60 +52,67 @@ public class BinaryHeap {
         if (pos <= size) {
             if (!isLeaf(pos)) {
 //                System.out.println("Is not leaf");
-                if (array[pos] > array[findRightChild(pos)] ||
-                        array[pos] > array[findLeftChild(pos)]) {
-//                    System.out.println("Parent greater than one of its children");
-                    if (array[findLeftChild(pos)] < array[findRightChild(pos)]) {
-//                        System.out.println("swap " + array[pos] + " and " + array[findLeftChild(pos)]);
-                        swap(pos, findLeftChild(pos));
-                        minHeapify(findLeftChild(pos));
-                    } else {
-//                        System.out.println("swap " + array[pos] + " and " + array[findRightChild(pos)]);
-                        swap(pos, findRightChild(pos));
-                        minHeapify(findRightChild(pos));
+                if (array[findRightChild(pos)] != null && array[findLeftChild(pos)] != null) {
+                    if (array[pos] > array[findRightChild(pos)] ||
+                            array[pos] > array[findLeftChild(pos)]) {
+//                        System.out.println("Parent greater than one of its children");
+                        if (array[findLeftChild(pos)] < array[findRightChild(pos)]) {
+//                            System.out.println("swap " + array[pos] + " and " + array[findLeftChild(pos)]);
+                            swap(pos, findLeftChild(pos));
+                            minHeapify(findLeftChild(pos));
+                        } else {
+//                            System.out.println("swap " + array[pos] + " and " + array[findRightChild(pos)]);
+                            swap(pos, findRightChild(pos));
+                            minHeapify(findRightChild(pos));
+                        }
                     }
+                } else if (array[findLeftChild(pos)] != null && array[findRightChild(pos)] == null) {
+//                    System.out.println("swap " + array[pos] + " and " + array[findLeftChild(pos)]);
+                    swap(pos, findLeftChild(pos));
+                    minHeapify(findLeftChild(pos));
+                } else {
+//                    System.out.println("swap " + array[pos] + " and " + array[findRightChild(pos)]);
+                    swap(pos, findRightChild(pos));
+                    minHeapify(findRightChild(pos));
                 }
 
-        } else {
-            array[size--] = 0;
             }
         }
     }
 
-    public int deleteMin() {
+    public void deleteMin() {
+        if (size == 0) {
+            return;
+        }
         int popped = array[FIRST];
         array[FIRST] = array[size];
-//        array[size--] = 0;
-        if (size <= 2) {
-            array[size] = 0;
-            size--;
-            return popped;
-        }
+        array[size--] = null;
         minHeapify(FIRST);
-        return popped;
+        System.out.println("Deleted " + popped);
     }
 
     public int findRightChild(int index) {
-//        System.out.println("Right child at index: " + 2*index+1);
         return 2*index+1;
     }
 
     public int findLeftChild(int index) {
-//        System.out.println("Left child at index: " + 2*index);
         return 2*index;
     }
 
     public int findParent(int index) {
-//        System.out.println("Parent at index: " + index/2);
         return index/2;
     }
 
     public void print() {
         for (int i = 1; i <= size; i++) {
-            System.out.print("Parent: " + array[i]
-            + " Left Child: " + array[2 * i]
-            + " Right Child: " + array[2 * i + 1]);
+            String left = array[2*i] != null ? "Left: " + String.valueOf(array[2*i]) : "Left: -";
+            String right = array[2*i+1] != null ? "Right: " +  String.valueOf(array[2*i+1]) : "Right: -";
+            System.out.print("Node: " + array[i] + " " +  left + " " + right);
             System.out.println();
         }
+    }
+
+    public int getSize() {
+        return size;
     }
 }

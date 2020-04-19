@@ -30,7 +30,6 @@ public class Calc {
         }
         Double answer = evaluate();
 
-        // TODO check return
         return answer;
     }
     public String formatString(String data) {
@@ -47,6 +46,7 @@ public class Calc {
         return data;
     }
 
+    // TODO decimal numbers & negative values
     public void infixToPostfix(String data) {
         // empty old values
         postfix = "";

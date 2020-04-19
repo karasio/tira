@@ -1,7 +1,5 @@
 package com.tira.tehtava14;
 
-import java.util.Stack;
-
 public class Calc {
     private OperandiStack operandi;
     private OperatorStack operators;
@@ -13,20 +11,16 @@ public class Calc {
         postfix = "";
     }
 
-    public Double calculate(String data) {
-        /*
-        0. format string
-        1. muokkaa string infix > postfix
-        2. lisää numerot operandistakkiin
-        3. lisää operaattorit operatorstakkiin
-        4. laske
-        5. palauta tulos
-         */
+    public Double calculate(String data, boolean isItInfix) {
         String formattedData = formatString(data);
         if (formattedData.equals("")) {
             return null;
-        } else {
+        }
+
+        if (isItInfix){
             infixToPostfix(formattedData);
+        } else {
+            handlePostFix(formattedData);
         }
         Double answer = evaluate();
 
@@ -46,12 +40,11 @@ public class Calc {
         return data;
     }
 
-    // TODO decimal numbers & negative values
     public void infixToPostfix(String data) {
         // empty old values
         postfix = "";
-        operators.clear();
-        operandi.clear();
+        operators = new OperatorStack();
+        operandi = new OperandiStack();
 
         // convert to postfix
         for (int i = 0; i < data.length(); i++) {
@@ -87,7 +80,21 @@ public class Calc {
                 postfix += operators.pop().getChr();
             }
         }
-        System.out.println(postfix);
+        System.out.println(data + " converted to postfix: " + postfix);
+    }
+
+    public void handlePostFix(String data) {
+        // empty old values
+        postfix = data;
+        operators = new OperatorStack();
+        operandi = new OperandiStack();
+
+        for (int i = 0; i < postfix.length(); i++) {
+            char c = postfix.charAt(i);
+            if (!isADigit(c)) {
+                operators.push(c);
+            }
+        }
     }
 
     private Double evaluate() {

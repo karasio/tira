@@ -26,25 +26,34 @@ public class Menu {
     private static void printMenu() {
         char select;
         Calc c = new Calc();
-        String data; // Pinon data-kenttä
+        String data;
         do {
-            System.out.println("\n\t\t\t1. Fill calculation (as infix): Remember to use ( ) when needed");
-            System.out.print("\t\t\t2. End\n");
+            System.out.print("\n\t1. Fill calculation (infix)");
+            System.out.print("\t\t\t2. Fill calculation (postfix)");
+            System.out.println("\t\t\t3. End");
             select = Lue.merkki();
             switch (select) {
                 case '1':
                     System.out.println("What shall we calculate?");
                     data = new String(Lue.rivi());
-                    Double d = c.calculate(data);
+                    Double d = c.calculate(data, true);
                     if (d != null) {
                         System.out.println("=" + d);
+                    }
+                    break;
+                case '2':
+                    System.out.println("What shall we calculate?");
+                    data = new String(Lue.rivi());
+                    Double d2 = c.calculate(data, false);
+                    if (d2 != null) {
+                        System.out.println("=" + d2);
                     }
                     break;
                 default:
                     break;
             }
         }
-        while (select != '2');
+        while (select != '3');
     }
 //printMenu loppuu ----------------------------------------------------------------
 }

@@ -33,11 +33,10 @@ public class Menu {
 
         Integer data;
         do {
-            System.out.print("\n\t\t1. Lisää avain.");
-            System.out.print("\t\t\t2. Etsi avaimella.");
-            System.out.print("\t\t\t3. Käy puu läpi esijärjestyksessä.");
-            System.out.print("\t\t\t4. Poista avaimella.");
-            System.out.println("\t\t\t5. lopetus ");
+            System.out.print("\n\t1. Lisää avain.");
+            System.out.print("\t\t2. Etsi avaimella.");
+            System.out.print("\t\t3. Käy puu läpi esijärjestyksessä.");
+            System.out.print("\t\t4. Poista avaimella.\n");
             select = Lue.kluku();
             switch (select) {
                 case 1:
@@ -58,7 +57,7 @@ public class Menu {
                 case 3:
                     Iterator<Integer> i = tree.iterator();
                     while(i.hasNext()) {
-                        System.out.println(i.next() + " ");
+                        System.out.print(i.next() + " ");
                     }
                     System.out.println();
                     break;

@@ -41,12 +41,12 @@ public class Menu {
             select = Lue.kluku();
             switch (select) {
                 case 1:
-                    System.out.println("Anna uusi avain (merkkijono)");
+                    System.out.println("Anna uusi avain (kokonaisluku)");
                     data = Lue.kluku();
                     tree.add(data);
                     break;
                 case 2:
-                    System.out.println("Anna etsittävä avain (merkkijono)");
+                    System.out.println("Anna etsittävä avain (kokonaisluku)");
                     data = Lue.kluku();
                     if (tree.contains(data)){
                         System.out.println("Avain löytyi.");
@@ -77,7 +77,7 @@ public class Menu {
                     break;
             }
         }
-        while (select != 5);
+        while (select != 6);
     }
 //printMenu loppuu ----------------------------------------------------------------
 }

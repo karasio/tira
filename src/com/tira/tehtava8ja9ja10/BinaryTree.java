@@ -109,7 +109,7 @@ public class BinaryTree {
                 System.out.println("Poisto - 1 lapsi, oikea");
                 Node child = tree.root.right().root;
                 tree.root = child;
-            } else {                                                                // 2 children -- find out last child on right side
+            } else {                                                                // 2 children -- find out last left child on right side
                 System.out.println("Poisto - 2 lasta");
                 Node lastChild = lastChild(tree.root.right().root);                 // replace node to be deleted with last child and attach
                 BinaryTree tree1 = new BinaryTree();                                // it's children to last child

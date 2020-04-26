@@ -35,8 +35,9 @@ public class Menu {
         do {
             System.out.print("\n\t1. Lisää avain.");
             System.out.print("\t\t2. Etsi avaimella.");
-            System.out.print("\t\t3. Käy puu läpi esijärjestyksessä.");
-            System.out.print("\t\t4. Poista avaimella.\n");
+            System.out.print("\t\t3. InOrder.");
+            System.out.print("\t\t4. PreOrder");
+            System.out.print("\t\t5. Poista avaimella.\n");
             select = Lue.kluku();
             switch (select) {
                 case 1:
@@ -62,10 +63,17 @@ public class Menu {
                     System.out.println();
                     break;
                 case 4:
+                    System.out.println("Puun läpikäynti esijärjestyksessä ei ole mahdollista, mutta tässä puu laskevassa järjestyksessä.");
+                    Iterator<Integer> i2 = tree.descendingIterator();
+                    while(i2.hasNext()) {
+                        System.out.print(i2.next() + " ");
+                    }
+                    break;
+                case 5:
                     data = Lue.kluku();
                     tree.remove(data);
                     break;
-                case 5:
+                case 6:
                     break;
             }
         }

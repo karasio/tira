@@ -32,7 +32,7 @@ public class Menu {
         do {
             System.out.print("\n\t\t1. Lisää avain.");
             System.out.print("\t\t\t2. Etsi avaimella.");
-            System.out.print("\t\t\t3. Käy puu läpi esijärjestyksessä.");
+            System.out.print("\t\t\t3. Käy puu läpi sisäjärjestyksessä.");
             System.out.print("\t\t\t4. Poista avaimella.");
             System.out.println("\t\t\t5. lopetus ");
             select = Lue.merkki();

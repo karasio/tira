@@ -31,19 +31,22 @@ public class Menu {
             tree.add(i);
         }
 
+        System.out.println("TreeSetiin lisätty {4, 32, 56, 21, 56778, 224, 1, -88, 0, 282, 282}");
         Integer data;
         do {
-            System.out.print("\n\t1. Lisää avain.");
+            System.out.print("\t1. Lisää avain.");
             System.out.print("\t\t2. Etsi avaimella.");
             System.out.print("\t\t3. InOrder.");
             System.out.print("\t\t4. PreOrder");
             System.out.print("\t\t5. Poista avaimella.\n");
+            System.out.print("Valintasi: ");
             select = Lue.kluku();
             switch (select) {
                 case 1:
-                    System.out.println("Anna uusi avain (kokonaisluku)");
+                    System.out.print("Anna uusi avain (kokonaisluku): ");
                     data = Lue.kluku();
                     tree.add(data);
+                    System.out.println(data + " lisätty");
                     break;
                 case 2:
                     System.out.println("Anna etsittävä avain (kokonaisluku)");
@@ -56,6 +59,7 @@ public class Menu {
                     }
                     break;
                 case 3:
+                    System.out.print("InOrder: ");
                     Iterator<Integer> i = tree.iterator();
                     while(i.hasNext()) {
                         System.out.print(i.next() + " ");
@@ -65,13 +69,19 @@ public class Menu {
                 case 4:
                     System.out.println("Puun läpikäynti esijärjestyksessä ei ole mahdollista, mutta tässä puu laskevassa järjestyksessä.");
                     Iterator<Integer> i2 = tree.descendingIterator();
+                    System.out.print("Descending order: ");
                     while(i2.hasNext()) {
                         System.out.print(i2.next() + " ");
                     }
+                    System.out.println();
                     break;
                 case 5:
                     data = Lue.kluku();
-                    tree.remove(data);
+                    if (tree.remove(data)) {
+                        System.out.println("Poistettu " + data);
+                    } else {
+                        System.out.println("Antamaasi lukua ei löydy");
+                    }
                     break;
                 case 6:
                     break;

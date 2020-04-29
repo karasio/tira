@@ -2,7 +2,7 @@ package com.tira.tehtava19202122;
 
 import java.util.Comparator;
 
-public class NameComparator implements Comparator {
+public class NameComparator implements Comparator<Object> {
     @Override
     public int compare(Object o1, Object o2) {
         TrafficCard t1 = (TrafficCard)o1;
